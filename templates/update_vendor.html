@@ -1,0 +1,21 @@
+{% extends 'body.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>Update Vendor</h2>
+    <form action="/update/vendor/{{ vendor.vendor_code }}/" method="post">
+        <div class="form-group">
+            <label for="name">Name</label>
+            <input type="text" class="form-control" id="name" name="name" value="{{ vendor.name }}" required>
+        </div>
+        <div class="form-group">
+            <label for="contact">Contact</label>
+            <input type="text" class="form-control" id="contact" name="contact" value="{{ vendor.contact }}" required>
+        </div>
+        <div class="form-group">
+            <label for="address">Address</label>
+            <input type="text" class="form-control" id="address" name="address" value="{{ vendor.address }}" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>
+{% endblock %}

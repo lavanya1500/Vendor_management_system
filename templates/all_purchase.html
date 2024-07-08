@@ -1,0 +1,48 @@
+<!-- templates/all_purchase.html -->
+{% extends 'body.html' %}
+{% block content %}
+<div class="container mt-5">
+    <h2>PO Detail</h2>
+    <div class="dropdown">
+        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Select
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <a class="dropdown-item" href="/api/purchase_orders/vendor/All">All</a>
+            {% for n in unique_names %}
+                <a class="dropdown-item" href="/api/purchase_orders/vendor/{{ n }}">{{ n }}</a>
+            {% endfor %}
+        </div>
+    </div>
+    <table class="table table-bordered mt-3">
+        <thead>
+            <tr>
+                <th>PO ID</th>
+                <th>Vendor Name</th>
+                <th>Order Date</th>
+                <th>Items</th>
+                <th>Quantity</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for p in po %}
+            <tr>
+                <td>{{ p.po_id }}</td>
+                <td>{{ p.vendor_name }}</td>
+                <td>{{ p.order_date }}</td>
+                <td>{{ p.items }}</td>
+                <td>{{ p.quantity }}</td>
+                <td>{{ p.status }}</td>
+                <td>
+                    <a href="/update/purchase_order/{{ p.po_id }}" class="btn btn-warning btn-sm">Update</a>
+                    <form action="/delete/purchase_order/{{ p.po_id }}" method="post" style="display:inline;">
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

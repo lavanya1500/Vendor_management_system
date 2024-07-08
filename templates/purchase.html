@@ -1,0 +1,94 @@
+{% extends "body.html" %}
+
+{% block title %}Purchase Order Form{% endblock %}
+
+{% block styles %}
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+.form-container h2 {
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-size: 24px;
+    color: #333;
+}
+.form-container label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #333;
+}
+.form-container input[type="text"],
+.form-container input[type="date"],
+.form-container input[type="number"] {
+    width: calc(100% - 22px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+}
+.form-container input[type="submit"] {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.form-container input[type="submit"]:hover {
+    background-color: #45a049;
+}
+{% endblock %}
+
+{% block content %}
+<div class="form-container">
+    <h2>Purchase Order Form</h2>
+    <form action="/api/purchase_order/" method="post">
+        <label for="vendor_code">Vendor Code:</label>
+        <input type="text" id="vendor_code" name="vendor_code" required><br>
+        
+        <label for="order_date">Order Date:</label>
+        <input type="date" id="order_date" name="order_date" required><br>
+        
+        <label for="items">Items:</label>
+        <input type="text" id="items" name="items" required><br>
+        
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" required><br>
+        
+        <label for="delivery_date">Delivery Date:</label>
+        <input type="date" id="delivery_date" name="delivery_date" required><br>
+        
+        <label for="status">Status:</label>
+        <input type="text" id="status" name="status" required><br>
+        
+        <label for="quality_rating">Rating:</label>
+        <input type="text" id="quality_rating" name="quality_rating" required><br>
+        
+        <label for="issue_date">Issue Date:</label>
+        <input type="date" id="issue_date" name="issue_date" required><br>
+        
+        <label for="acknowledgment_date">Acknowledgment Date:</label>
+        <input type="date" id="acknowledgment_date" name="acknowledgment_date" required><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+</div>
+{% endblock %}

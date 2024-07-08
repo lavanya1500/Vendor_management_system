@@ -1,0 +1,49 @@
+{% extends "body.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Purchase Order Details</h2>
+    <table class="table table-bordered">
+      <tr>
+        <th>Purchase Order ID</th>
+        <td>{{ po.po_id }}</td>
+      </tr>
+      <tr>
+        <th>Vendor Code</th>
+        <td>{{ po.vendor_code }}</td>
+      </tr>
+      <tr>
+        <th>Order Date</th>
+        <td>{{ po.order_date }}</td>
+      </tr>
+      <tr>
+        <th>Delivery Date</th>
+        <td>{{ po.delivery_date }}</td>
+      </tr>
+      <tr>
+        <th>Items</th>
+        <td>{{ po.items }}</td>
+      </tr>
+      <tr>
+        <th>Quantity</th>
+        <td>{{ po.quantity }}</td>
+      </tr>
+      <tr>
+        <th>Status</th>
+        <td>{{ po.status }}</td>
+      </tr>
+      <tr>
+        <th>Rating</th>
+        <td>{{ po.quality_rating }}</td>
+      </tr>
+      <tr>
+        <th>Issue Date</th>
+        <td>{{ po.issue_date }}</td>
+      </tr>
+      <tr>
+        <th>Acknowledgment Date</th>
+        <td>{{ po.acknowledgment_date }}</td>
+      </tr>
+    </table>
+  </div>
+{% endblock %}
